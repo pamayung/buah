@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Form Buah</title>
+</head>
+<body>
+<h1 th:text="${buah.id == null ? 'Tambah Buah' : 'Edit Buah'}"></h1>
+<form th:action="@{/save}" th:object="${buah}" method="post">
+  <input type="hidden" th:field="*{id}" />
+  <div>
+    <label>Nama:</label>
+    <input type="text" th:field="*{nama}" required />
+  </div>
+  <div>
+    <label>Warna:</label>
+    <input type="text" th:field="*{warna}" required />
+  </div>
+  <div>
+    <label>Berat:</label>
+    <input type="number" th:field="*{berat}" required />
+  </div>
+  <div>
+    <button type="submit">Simpan</button>
+  </div>
+</form>
+<a href="/">Kembali</a>
+</body>
+</html>

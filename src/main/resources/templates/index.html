@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Daftar Buah</title>
+</head>
+<body>
+<h1>Daftar Buah</h1>
+<table border="1">
+    <tr>
+        <th>Nama</th>
+        <th>Warna</th>
+        <th>Berat</th>
+        <th>Aksi</th>
+    </tr>
+    <tr th:each="buah : ${buahList}">
+        <td th:text="${buah.nama}">Nama Buah</td>
+        <td th:text="${buah.warna}">Warna Buah</td>
+        <td th:text="${buah.berat}">Berat Buah</td>
+        <td>
+            <a th:href="@{/edit/{id}(id=${buah.id})}">Edit</a>
+            <a th:href="@{/delete/{id}(id=${buah.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+<a href="/create">Tambah Buah</a>
+</body>
+</html>
